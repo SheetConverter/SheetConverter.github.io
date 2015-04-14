@@ -1,73 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+   
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Sam Isaacson">
+    <link rel="icon" href="../../favicon.ico"><!-- TODO-->
 
     <title>SheetConverter</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="static/bootstrap/css/theme/flatly/bootstrap.css" rel="stylesheet">
-    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
-    <link href="static/bootstrap/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <!-- my custom stuff -->
+    <link href="css/custom.css" rel="stylesheet">
 
   </head>
 
+
   <body>
 
-  <div class="container">
-    <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-    <div class="header"/>    
-  </div>
+	<nav class="navbar navbar-inverse header_nav">
+	  <div class="container-fluid container-fluid-adj">
+	  	<img src="img\logo.jpg" class="img-responsive logo">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      	<a class="navbar-brand" href="#">SheetConverter</a>	
+	      
+	    </div> <!--navbar-header-->
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+	        <li><a href="#">About</a></li>
+	        <li><a href="#">Contact</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
 
 
-  <div class="jumbotron">
-    <h1 class="text-left">SheetConverter</h1>      
-    <p>Convert your excel spreadsheet formulas into a reusable web API for your app.</p>
-  </div>
 
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Liberate your spreadsheets!</h1>
+        <p>Automatically turn the calculations in your spreadsheet into *reusable* components. Web, Mobile, Desktop, Server - we’ve got it covered! Upload your spreadsheet to the cloud and securely expose the calculations your application needs as web services - without rewriting any of your custom calculation logic.
+		</p>
+      </div>
+    </div>
 
     <div class="container">
-      
-      <div id="signupSuccess" class="alert alert-success" style="display:none">
-        <p id="signupSuccessText">Thanks for signing up! You'll be among the first to know when we launch.</p>
-      </div>
-      <div id="signupDuplicate" class="alert alert-success" style="display:none">
-        <p id="signupDuplicateText">Fear not, you're already on the list! You'll be among the first to know when we launch.</p>
-      </div>
-      <div id="signupError" class="alert alert-info" style="display:none">
-        <p id="signupErrorText">Well this is embarrassing. It looks like we're having trouble getting you on the list.</p>
-      </div>
-      <div class="jumbotron">
-        <h3 class="lead">We're pretty thrilled to unveil our latest creation. Sign up below to be notified when we officially launch!</h3>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Keep me Informed...</h2>
+          <p>Do you want us to let you know when we launch? Then drop your email in the box below - we promise not to use it for any other purpose.</p>
+          
+            <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <input type="text" placeholder="Email" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </form>
+          </div><!--/.navbar-collapse -->  
         
-      <form class="form-inline">
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <button class="btn btn-lg btn-primary" id="emailSubmit" type="submit">Sign up</button>
-      </form>
-
+        </div>
       </div>
-      
 
+      <hr>
 
-
-      <div class="footer">
+      <footer>
         <p>&copy; SheetConverter 2015</p>
-      </div>
-      
-    
-    <script src="static/jquery/jquery.js"></script>
-    <script src="static/bootstrap/js/bootstrap.min.js"></script>
-    
+      </footer>
+    </div> <!-- /container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
 
     <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
     <script type="text/javascript">
@@ -75,7 +109,7 @@
     $(document).ready(function(){
       
       var txtEmail = document.getElementById("inputEmail")
-      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com/#-JltkX33nPHKvySGqMA-|690e47673a6639ab66c0ee44d4425fe2");
+      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com");
       var currentFirebaseRef = myRootFirebaseRef.child('signup');
 
       $("#emailSubmit").click(function(){
@@ -86,11 +120,6 @@
 
       
     })
-
-      
     </script>
-
-
-
   </body>
 </html>
