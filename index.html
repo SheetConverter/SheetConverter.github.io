@@ -143,13 +143,13 @@
       var email = $("#inputEmail") //document.getElementById("inputEmail")
       var comments = $("#inputComments") //document.getElementById("inputComments")
 
-      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com/signup");
+      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com");
       // var currentFirebaseRef = myRootFirebaseRef.child('signup');
 
       $("#SubscribeButton").click(function(){
       	console.log("calling function");
 
-        myRootFirebaseRef.set({
+        myRootFirebaseRef.push({
         email: email.value
         // count: num
         });
