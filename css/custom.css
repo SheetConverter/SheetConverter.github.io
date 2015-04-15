@@ -5,12 +5,23 @@
 }
 
 .container-fluid-adj{
-	padding-left: 0;
+	/*ensure logo starts at left edge*/
+	padding-left: 0; 
+}
+
+.navbar-brand-adj{
+	margin-left: 40;
+	margin-right: 15;
 }
 
 .logo{
 	float:left;
 	background-color: #FFFFFF;
+	border-width: 5;
+	border-color: #FFFFFF;
+/*	width: 193;
+	height: 49;
+*/
 }
 
 .love{
@@ -22,5 +33,11 @@
 	margin-bottom: 15;
 }
 
+footer{
+	float: right;
+	margin-right: 15;
+	margin-left: 15;
+	padding-right: 15;
+	padding-left: 15;
 
-
+}

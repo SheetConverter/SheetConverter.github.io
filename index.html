@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,24 +10,19 @@
     <link rel="icon" href="../../favicon.ico"><!-- TODO-->
 
     <title>SheetConverter</title>
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-
-    <!-- my custom stuff -->
+    <!-- <link href="jumbotron.css" rel="stylesheet"> -->
+    <!-- Custom css rules -->
     <link href="css/custom.css" rel="stylesheet">
-
   </head>
-
 
   <body>
 
-	<nav class="navbar navbar-inverse header_nav">
+	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid container-fluid-adj">
-	  	<img src="img\Logo.png" class="img-responsive logo">
+	  	<img src="img\Logo.png" srcset="img\Logo.png 1x, img\Logo@2x.png 2x" alt="SheetConverter Logo" class="img-responsive logo">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -37,8 +31,6 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      	<a class="navbar-brand" href="#">SheetConverter</a>	
-	      
 	    </div> <!--navbar-header-->
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,7 +42,7 @@
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
-	</nav>
+	</nav> 
 
 
 
@@ -67,7 +59,9 @@
 	    <div class="container">
 	      <div class="row">
 	        <div class="col-sm-12">
-	          <img src="img\Process@2x.png" class="img-responsive">
+	        	<p> <br> </p>
+	        	<img src="img\Process@2x.png" class="img-responsive">
+	        	<p> <br> </p>
 	        </div>
 	      </div>
 	    </div>
@@ -82,12 +76,12 @@
 		      	<h2>Why is this fantastic?</h2>
 		      	<p>
 			      	Most business people are much more comfortable expressing the logic and formulas of their business in a spreadsheet as opposed to a programming language. Not needing to re-implement these spreadsheets has the following tangible benefits:
-			      	<ol>
-			      		<li>Direct Savings on development cost</li>
-			      		<li>Quicker deployment of applications</li>
-			      		<li>Avoidance of the risk of incorrect implementation: web developers don’t usually speak “spreadsheet"</li>
-			      	</ol>
 		      	</p>
+	      		<ol class="list-group">
+				  <li class="list-group-item"><span class="badge">$$$</span>Direct Savings on development cost</li>
+				  <li class="list-group-item"><span class="badge">time</span>Quicker deployment of applications</li>
+				  <li class="list-group-item"><span class="badge">risk</span>Avoidance of the risk of incorrect implementation: web developers don’t usually speak “spreadsheet"</li>
+				</ol>
 	        </div>
 	        <div class="col-sm-2">
 	          <img src="img\Love.png" class="img-responsive love">
@@ -104,25 +98,31 @@
       <div class="row">
         <div class="col-md-12">
           <h2>Keep me Informed...</h2>
-          <p>Do you want us to let you know when we launch? Then drop your email in the box below - we promise not to use it for any other purpose.</p>
+          <p>SheetConverter is currently in Beta. Drop your email in the box below and we'll keep you updated with our progress.</p>
           
-            <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-              <div class="form-group">
-                <input type="text" placeholder="Email" class="form-control">
+            <form class="form-horizontal">
+              <div class="col-sm-4">
+              	<div class="form-group">
+	                <input type="text" placeholder="Email" class="form-control" id="inputEmail">
+              	</div>
               </div>
-              <button type="submit" class="btn btn-success">Subscribe</button>
+              <div class="col-sm-8">
+              	<div class="form-group">
+	            <input type="textarea" placeholder="Comments..." class="form-control" id="inputComments">
+              	</div>
+              </div>
+              <button class="btn btn-primary btn-lg" id="SubscribeButton">Subscribe</button> 
+              <!-- type="submit" -->
             </form>
-          </div><!--/.navbar-collapse -->  
-        
+
         </div>
       </div>
-
-
-      <footer>
-        <p>&copy; SheetConverter 2015</p>
-      </footer>
     </div> <!-- /container -->
+
+	<footer>
+	<p>&copy; SheetConverter 2015</p>
+	</footer>
+    
 
 
 
@@ -133,19 +133,30 @@
     <script src="js/bootstrap.min.js"></script>
 
 
+	
     <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
     <script type="text/javascript">
       
     $(document).ready(function(){
       
-      var txtEmail = document.getElementById("inputEmail")
-      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com");
-      var currentFirebaseRef = myRootFirebaseRef.child('signup');
+      var num = 1
+      var email = $("#inputEmail") //document.getElementById("inputEmail")
+      var comments = $("#inputComments") //document.getElementById("inputComments")
 
-      $("#emailSubmit").click(function(){
-        currentFirebaseRef.set({
-        email: txtEmail.value
+      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com/signup");
+      // var currentFirebaseRef = myRootFirebaseRef.child('signup');
+
+      $("#SubscribeButton").click(function(){
+      	console.log("calling function");
+
+        myRootFirebaseRef.set({
+        email: email.value
+        comments: comments.value
+        count: num
         });
+        $("#SubscribeButton").removeClass("btn-primary");
+        $("#SubscribeButton").removeClass("btn-success");
+        num++;
       })
 
       
