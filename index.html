@@ -100,10 +100,10 @@
           <h2>Keep me Informed...</h2>
           <p>SheetConverter is currently in Beta. Drop your email in the box below and we'll keep you updated with our progress.</p>
           
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="get" id="SubscribeForm">
               <div class="col-sm-4">
               	<div class="form-group">
-	                <input type="text" placeholder="Email" class="form-control" id="inputEmail">
+	                <input type="email" required="required" placeholder="Email" class="form-control" id="inputEmail">
               	</div>
               </div>
               <div class="col-sm-8">
@@ -111,8 +111,8 @@
 	            <input type="textarea" placeholder="Comments..." class="form-control" id="inputComments">
               	</div>
               </div>
-              <button class="btn btn-primary btn-lg" id="SubscribeButton">Subscribe</button> 
-              <!-- type="submit" -->
+              <button type="submit" class="btn btn-success btn-lg" id="SubscribeButton">Subscribe</button> 
+              <!--  -->
             </form>
 
         </div>
@@ -139,25 +139,25 @@
       
     $(document).ready(function(){
       
-      var num = 1
-      var email = $("#inputEmail") //document.getElementById("inputEmail")
-      var comments = $("#inputComments") //document.getElementById("inputComments")
+      var txtEmail = $("#inputEmail"); //document.getElementById("inputEmail")
+      var txtComments = document.getElementById("inputComments");//$("#inputComments")
 
-      var myRootFirebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com");
+      var firebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com/signup");
       // var currentFirebaseRef = myRootFirebaseRef.child('signup');
 
       $("#SubscribeButton").click(function(){
-      	console.log("calling function");
+      	
+        var d1 = new Date()
 
-        myRootFirebaseRef.push({
-        email: email.value
-        // count: num
-        });
-        $("#SubscribeButton").removeClass("btn-primary");
-        $("#SubscribeButton").removeClass("btn-success");
-        num++;
+        // no validation of email: `validity` property did not seem to be implemented yet...
+	  		firebaseRef.push({
+  	        email: txtEmail.val(),
+  	        comments: txtComments.value,            
+            date: d1.toDateString(),
+            time: d1.toTimeString()
+        	});  	
       })
-
+      // use an online json to csv tool to convert for analysis
       
     })
     </script>
