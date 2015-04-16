@@ -4,6 +4,7 @@
 	padding-left: 0;
 }
 
+
 .container-fluid-adj{
 	/*ensure logo starts at left edge*/
 	padding-left: 0; 
@@ -33,7 +34,13 @@
 	margin-bottom: 15;
 }
 
-footer{
+.para{
+	margin-bottom: 15px;
+  	font-size: 21px;
+  	font-weight: 200;
+}
+
+#copyright{
 	float: right;
 	margin-right: 15;
 	margin-left: 15;
