@@ -205,7 +205,8 @@
     $(document).ready(function(){
       
       var txtEmail = $("#inputEmail"); //document.getElementById("inputEmail")
-      
+      var txtComments = document.getElementById("inputComments");//$("#inputComments")
+
       var firebaseRef = new Firebase("https://vivid-inferno-8231.firebaseio.com/signup");
       // var currentFirebaseRef = myRootFirebaseRef.child('signup');
 
@@ -216,7 +217,8 @@
         // no validation of email: `validity` property did not seem to be implemented yet...
 	  		firebaseRef.push({
   	        email: txtEmail.val(),
-  	        date: d1.toDateString(),
+  	        comments: txtComments.value,            
+            date: d1.toDateString(),
             time: d1.toTimeString()
         	});  	
       })

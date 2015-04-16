@@ -40,6 +40,11 @@
   	font-weight: 200;
 }
 
+#inputEmail{
+
+	max-width: 200;
+}
+
 #copyright{
 	float: right;
 	margin-right: 15;
